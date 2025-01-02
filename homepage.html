@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="alternate" href="DASHBOARD.HTML">
+    <link rel="alternate" href="tosell.html">
+    <link rel="alternate" href="rewards.html">
+    <link rel="alternate" href="game.html">
+    <link rel="alternate" href="tracking.html">
+    <link rel="alternate" href="infooo.html">
+    <link rel="alternate" href="BUY.html">
+    <link rel="alternate" href="CER.html">
+
+    <title>PlastiCycle - Sell Plastic for Recycling</title>
+    <img src="c:\Users\P.Vissvapriya\Pictures\HACKTHON\hack\logooo.jpg"></img>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #42a5f5;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        nav {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .big-box-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+        }
+
+        .big-box {
+            width: 250px;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            background: linear-gradient(45deg, #ff6b6b, #ffcc5c, #96e6a1, #42a5f5);
+            background-size: 400% 400%;
+            animation: gradientAnimation 6s ease infinite;
+        }
+
+        .big-box:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: auto;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #42a5f5;
+            color: white;
+            padding: 12px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2196f3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to plastic trackyy</h1>
+        <p>Sell your used plastic and make an eco-friendly impact</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="///C:/Users/P.Vissvapriya/Pictures/HACKTHON/hack/homepage.html"></a>HOME</li>
+            <li><a href="///C:/Users/P.Vissvapriya/Pictures/HACKTHON1/DASHBOARD.HTML">DASHBOARD</a></li>
+            <li><a href="#">LOGIN</a></li>
+            <li><a href="///C:/Users/P.Vissvapriya/Pictures/HACKTHON/hack/infooo.html">INFO</a></li>
+            <li><a href="///C:/Users/P.Vissvapriya/Pictures/HACKTHON/hack/aboutt.html">ABOUT</a></li>
+            <li><a href="///C:/Users/P.Vissvapriya/Pictures/HACKTHON/track122.html">TRACKING</a></li>
+            <li><a href="///C:/Users/P.Vissvapriya/Pictures/HACKTHON/hack/BUY.html">BUY</a></li>
+            <li><a href="///C:/Users/P.Vissvapriya/Pictures/HACKTHON/hack/CER.HTML">CERTIFICATION GENERATION</a></li>
+        </ul>
+    </nav>
+
+    <section class="big-box-container">
+        <!-- Big clickable boxes with gradient and rounded corners -->
+        <div class="big-box" onclick="window.location.href='///C:/Users/P.Vissvapriya/Pictures/HACKTHON/hack/game.html'">Game</div>
+        <div class="big-box" onclick="window.location.href='///C:/Users/P.Vissvapriya/Pictures/HACKTHON/tosell.html'">Shop Easy</div>
+        <div class="big-box" onclick="window.location.href='///C:/Users/P.Vissvapriya/Pictures/HACKTHON1/DASHBOARD.HTML'">Dashboard</div>
+        <div class="big-box" onclick="window.location.href='///C:/Users/P.Vissvapriya/Pictures/HACKTHON/hack/rewards.html'">Rewards</div>
+    </section>
+
+    <section id="features" class="container">
+        <h2>Why PlastiCycle?</h2>
+        <div class="feature">
+            <h3>Direct Marketplace</h3>
+            <p>Sell or donate your used plastic directly to certified recyclers.</p>
+        </div>
+        <div class="feature">
+            <h3>Geo-Targeted Logistics</h3>
+            <p>Find nearby recyclers and schedule pickups or drop-offs with ease.</p>
+        </div>
+        <div class="feature">
+            <h3>EcoRewards Program</h3>
+            <p>Earn points for your recycling efforts and redeem them for rewards!</p>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="container">
+        <h2>How It Works</h2>
+        <ol>
+            <li>Sign Up or Log In</li>
+            <li>List your used plastic by providing details like type and quantity</li>
+            <li>Choose a nearby recycler or schedule a pickup</li>
+            <li>Earn EcoRewards Points for participating in recycling efforts</li>
+            <li>Redeem points for rewards or discounts</li>
+        </ol>
+    </section>
+
+    <section id="signup" class="container">
+        <h2>Get Started</h2>
+        <form id="signupForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 PlastiCycle. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Example form submission handler for sign-up
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            fetch('/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, email, password }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Sign-up successful! Welcome to PlastiCycle.');
+            })
+            .catch(error => {
+                alert('An error occurred: ' + error.message);
+            });
+        });
+    </script>
+</body>
+</html>

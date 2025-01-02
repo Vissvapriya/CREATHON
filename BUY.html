@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Plastic Items</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+            text-align: center;
+        }
+        header {
+            background-color: #42a5f5;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .product-price {
+            color: #42a5f5;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .add-to-cart-btn {
+            background-color: #42a5f5;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .add-to-cart-btn:hover {
+            background-color: #2196f3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Buy Plastic Items</h1>
+        <p>Choose from a wide range of reusable or recyclable plastic items.</p>
+    </header>
+
+    <div class="container">
+        <!-- Product Cards -->
+        <div class="product-card">
+            <img src="water_bottle.jpg" alt="Water Bottle" class="product-image">
+            <div class="product-name">Water Bottle</div>
+            <div class="product-price">₹20</div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="plastic_bag.jpg" alt="Plastic Bags" class="product-image">
+            <div class="product-name">Plastic Bags (Pack of 50)</div>
+            <div class="product-price">₹50</div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="straws.jpg" alt="Plastic Straws" class="product-image">
+            <div class="product-name">Plastic Straws (Pack of 100)</div>
+            <div class="product-price">₹30</div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="food_containers.jpg" alt="Food Containers" class="product-image">
+            <div class="product-name">Food Containers (Set of 3)</div>
+            <div class="product-price">₹120</div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="plastic_utensils.jpg" alt="Plastic Utensils" class="product-image">
+            <div class="product-name">Plastic Utensils (Set of 20)</div>
+            <div class="product-price">₹40</div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="shampoo_bottles.jpg" alt="Shampoo Bottles" class="product-image">
+            <div class="product-name">Shampoo Bottles (Empty, Set of 5)</div>
+            <div class="product-price">₹60</div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="toothbrush.jpg" alt="Plastic Toothbrush" class="product-image">
+            <div class="product-name">Plastic Toothbrush (Pack of 10)</div>
+            <div class="product-price">₹100</div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="plastic_packaging.jpg" alt="Plastic Packaging" class="product-image">
+            <div class="product-name">Plastic Packaging (Bubble Wrap)</div>
+            <div class="product-price">₹150</div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="coffee_lid.jpg" alt="Coffee Cup Lids" class="product-image">
+            <div class="product-name">Disposable Coffee Cup Lids (Pack of 20)</div>
+            <div class="product-price">₹25</div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="soft_drink_bottles.jpg" alt="Soft Drink Bottles" class="product-image">
+            <div class="product-name">Soft Drink Bottles and Caps (Set of 10)</div>
+            <div class="product-price">₹80</div>
+            <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+    </div>
+</body>
+</html>

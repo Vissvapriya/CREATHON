@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Friendly Certificate Generation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 50px;
+        }
+        .certificate-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #42a5f5;
+        }
+        p {
+            font-size: 1.2rem;
+        }
+        .certificate-content {
+            text-align: left;
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #42a5f5;
+            color: white;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2196f3;
+        }
+        .certificate {
+            margin-top: 20px;
+            padding: 30px;
+            border: 2px solid #42a5f5;
+            border-radius: 10px;
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fafafa;
+        }
+        .certificate h2 {
+            color: #42a5f5;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Generate Your Eco-Friendly Certificate</h1>
+    <p>Fill in the details below to receive your certificate for participating in eco-friendly practices!</p>
+
+    <div class="certificate-container">
+        <label for="name">Enter Your Name:</label>
+        <input type="text" id="name" placeholder="Full Name">
+        
+        <label for="achievement">Enter Your Achievement:</label>
+        <input type="text" id="achievement" placeholder="What have you done (e.g., Recycled 100kg of plastic)">
+        
+        <label for="date">Enter Date:</label>
+        <input type="date" id="date">
+        
+        <button onclick="generateCertificate()">Generate Certificate</button>
+    </div>
+
+    <div id="certificate" class="certificate" style="display:none;">
+        <h2>Eco-Friendly Achievement Certificate</h2>
+        <p>We are proud to award the following certificate:</p>
+        <div class="certificate-content">
+            <p><strong>Name:</strong> <span id="certificateName"></span></p>
+            <p><strong>Achievement:</strong> <span id="certificateAchievement"></span></p>
+            <p><strong>Date of Issue:</strong> <span id="certificateDate"></span></p>
+        </div>
+        <button onclick="downloadCertificate()">Download PDF</button>
+    </div>
+
+    <script>
+        function generateCertificate() {
+            var name = document.getElementById("name").value;
+            var achievement = document.getElementById("achievement").value;
+            var date = document.getElementById("date").value;
+
+            if(name && achievement && date) {
+                document.getElementById("certificateName").innerText = name;
+                document.getElementById("certificateAchievement").innerText = achievement;
+                document.getElementById("certificateDate").innerText = date;
+
+                document.getElementById("certificate").style.display = 'block';
+            } else {
+                alert("Please fill in all fields.");
+            }
+        }
+
+        function downloadCertificate() {
+            var certificateContent = document.getElementById("certificate").innerHTML;
+            var pdfWindow = window.open('', '', 'width=600,height=600');
+            pdfWindow.document.write(certificateContent);
+            pdfWindow.document.close();
+            pdfWindow.print();
+        }
+    </script>
+
+</body>
+</html>

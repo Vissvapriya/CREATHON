@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Items - ShopEasy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        header {
+            background-color: #42a5f5;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        label {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="file"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 12px;
+            font-size: 18px;
+            color: white;
+            background-color: #42a5f5;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2196f3;
+        }
+        .uploaded-items {
+            margin-top: 30px;
+        }
+        .item-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .item-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .item-card div {
+            text-align: left;
+            flex: 1;
+            margin-left: 15px;
+        }
+        .item-card h3 {
+            margin: 0;
+        }
+        .item-card p {
+            margin: 5px 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sell Your Recycling Items</h1>
+        <p>Upload items like plastic bottles, tins, and wrappers for sale</p>
+    </header>
+    <div class="container">
+        <h2>Upload an Item</h2>
+        <form id="uploadForm">
+            <label for="itemName">Item Name</label>
+            <input type="text" id="itemName" name="itemName" placeholder="e.g., Plastic Bottle" required>
+            <label for="itemPrice">Cost (in Rupees)</label>
+            <input type="number" id="itemPrice" name="itemPrice" placeholder="e.g., 50" required>
+            <label for="itemImage">Upload Image</label>
+            <input type="file" id="itemImage" name="itemImage" accept="image/*" required>
+            <button type="submit">Upload Item</button>
+        </form>
+
+        <div class="uploaded-items">
+            <h2>Uploaded Items</h2>
+            <div id="itemsContainer">
+                <!-- Uploaded items will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handling form submission
+        const uploadForm = document.getElementById('uploadForm');
+        const itemsContainer = document.getElementById('itemsContainer');
+
+        uploadForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            // Get form data
+            const itemName = document.getElementById('itemName').value;
+            const itemPrice = document.getElementById('itemPrice').value;
+            const itemImage = document.getElementById('itemImage').files[0];
+
+            if (itemImage) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    // Create item card
+                    const itemCard = document.createElement('div');
+                    itemCard.className = 'item-card';
+                    itemCard.innerHTML = `
+                        <img src="${e.target.result}" alt="${itemName}">
+                        <div>
+                            <h3>${itemName}</h3>
+                            <p>Price: ₹${itemPrice}</p>
+                        </div>
+                    `;
+                    itemsContainer.appendChild(itemCard);
+                };
+                reader.readAsDataURL(itemImage);
+            }
+
+            // Reset form
+            uploadForm.reset();
+        });
+    </script>
+</body>
+</html>

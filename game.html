@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plastic Cleanup Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .game-container {
+            text-align: center;
+        }
+        .trash-bin {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            display: inline-block;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #42a5f5;
+            position: relative;
+            overflow: hidden;
+        }
+        .plastic-item {
+            width: 80px;
+            height: 80px;
+            margin: 20px;
+            background-color: #ff6b6b;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .plastic-item:hover {
+            transform: scale(1.1);
+        }
+        #score {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Plastic Cleanup Challenge</h1>
+        <p>Drag the plastic waste to the correct recycling bin!</p>
+        
+        <div class="recycling-area">
+            <!-- Recycling Bins -->
+            <div class="trash-bin" id="bin-1"></div>
+            <div class="trash-bin" id="bin-2"></div>
+            <div class="trash-bin" id="bin-3"></div>
+        </div>
+
+        <div class="plastic-items-area">
+            <!-- Plastic Items to be Sorted -->
+            <div class="plastic-item" id="item-1" draggable="true">Water Bottle</div>
+            <div class="plastic-item" id="item-2" draggable="true">Plastic Bag</div>
+            <div class="plastic-item" id="item-3" draggable="true">Straw</div>
+        </div>
+
+        <div id="score">Score: 0</div>
+    </div>
+
+    <script>
+        let score = 0;
+
+        // Dragging functionality
+        const items = document.querySelectorAll('.plastic-item');
+        const bins = document.querySelectorAll('.trash-bin');
+
+        items.forEach(item => {
+            item.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text', e.target.id);
+            });
+        });
+
+        bins.forEach(bin => {
+            bin.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            bin.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const draggedItemId = e.dataTransfer.getData('text');
+                const draggedItem = document.getElementById(draggedItemId);
+
+                // Check if the item is dropped in the correct bin
+                if (bin.id === 'bin-1' && draggedItemId === 'item-1') {
+                    score += 10;  // Water Bottle goes into bin 1
+                } else if (bin.id === 'bin-2' && draggedItemId === 'item-2') {
+                    score += 10;  // Plastic Bag goes into bin 2
+                } else if (bin.id === 'bin-3' && draggedItemId === 'item-3') {
+                    score += 10;  // Straw goes into bin 3
+                } else {
+                    score -= 5;  // Incorrect sorting reduces points
+                }
+
+                updateScore();
+                draggedItem.style.visibility = 'hidden';  // Hide item after sorting
+            });
+        });
+
+        function updateScore() {
+            document.getElementById('score').innerText = Score= {score};
+        }
+    </script>
+</body>
+</html>

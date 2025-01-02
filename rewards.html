@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rewards Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #42a5f5;
+            color: white;
+            padding: 20px;
+        }
+        .rewards-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px auto;
+            gap: 30px;
+        }
+        .coin-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 150px;
+            padding: 20px;
+            text-align: center;
+        }
+        .coin-image {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        .coin-type {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .coin-count {
+            font-size: 16px;
+            color: #42a5f5;
+        }
+        .leaderboard {
+            margin: 40px auto;
+            max-width: 600px;
+            text-align: left;
+        }
+        .leaderboard h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .leaderboard-table th,
+        .leaderboard-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .leaderboard-table th {
+            background-color: #42a5f5;
+            color: white;
+        }
+        .leaderboard-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rewards</h1>
+        <p>Earn coins and climb the leaderboard!</p>
+    </header>
+
+    <!-- Coins Section -->
+    <div class="rewards-container">
+        <!-- Silver Coin -->
+        <div class="coin-card">
+            <img src="silver_coin.png" alt="Silver Coin" class="coin-image">
+            <div class="coin-type">Silver Coins</div>
+            <div class="coin-count" id="silver-coins">120</div>
+        </div>
+        <!-- Gold Coin -->
+        <div class="coin-card">
+            <img src="gold_coin.png" alt="Gold Coin" class="coin-image">
+            <div class="coin-type">Gold Coins</div>
+            <div class="coin-count" id="gold-coins">75</div>
+        </div>
+        <!-- Copper Coin -->
+        <div class="coin-card">
+            <img src="copper_coin.png" alt="Copper Coin" class="coin-image">
+            <div class="coin-type">Copper Coins</div>
+            <div class="coin-count" id="copper-coins">200</div>
+        </div>
+    </div>
+
+    <!-- Leaderboard Section -->
+    <section class="leaderboard">
+        <h2>Leaderboard</h2>
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>Total Coins</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboard-data">
+                <tr>
+                    <td>1</td>
+                    <td>Alice</td>
+                    <td>395</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Bob</td>
+                    <td>380</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Charlie</td>
+                    <td>365</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>David</td>
+                    <td>350</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Eve</td>
+                    <td>340</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>

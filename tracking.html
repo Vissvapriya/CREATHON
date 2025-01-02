@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plastic Waste Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #42a5f5;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin: 20px 0;
+        }
+        input, select {
+            padding: 10px;
+            font-size: 1rem;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #42a5f5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2196f3;
+        }
+        .tracker-summary {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+        .leaderboard {
+            margin-top: 40px;
+        }
+        .leaderboard table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .leaderboard th, .leaderboard td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .leaderboard th {
+            background-color: #42a5f5;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Plastic Waste Tracking</h1>
+        <p>Track and manage your plastic recycling efforts.</p>
+    </header>
+
+    <div class="container">
+        <h2>Log Your Plastic Waste</h2>
+        <form id="plastic-form">
+            <div class="form-group">
+                <label for="plastic-type">Plastic Type:</label>
+                <select id="plastic-type" required>
+                    <option value="water-bottle">Water Bottle</option>
+                    <option value="plastic-bag">Plastic Bag</option>
+                    <option value="straw">Straw</option>
+                    <option value="food-container">Food Container</option>
+                    <option value="plastic-utensils">Plastic Utensils</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity (kg):</label>
+                <input type="number" id="quantity" min="0" step="0.1" required>
+            </div>
+            <button type="submit">Log Plastic Waste</button>
+        </form>
+
+        <div class="tracker-summary">
+            <h3>Your Recycling Summary</h3>
+            <p>Total Plastic Recycled: <span id="total-recycled">0</span> kg</p>
+            <p>EcoRewards Points: <span id="eco-points">0</span> points</p>
+        </div>
+
+        <div class="leaderboard">
+            <h3>Leaderboard</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>User</th>
+                        <th>Total Recycled (kg)</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-list">
+                    <!-- Leaderboard data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let totalRecycled = 0;
+        let ecoPoints = 0;
+
+        // Sample leaderboard data
+        const leaderboard = [
+            { name: "Alice", totalRecycled: 50 },
+            { name: "Bob", totalRecycled: 40 },
+            { name: "Charlie", totalRecycled: 30 },
+        ];
+
+        // Update leaderboard
+        function updateLeaderboard() {
+            const leaderboardList = document.getElementById('leaderboard-list');
+            leaderboardList.innerHTML = '';  // Clear previous leaderboard data
+
+            leaderboard.sort((a, b) => b.totalRecycled - a.totalRecycled);  // Sort by recycled kg descending
+
+            leaderboard.forEach((user, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${user.name}</td>
+                    <td>${user.totalRecycled} kg</td>
+                `;
+                leaderboardList.appendChild(row);
+            });
+        }
+
+        // Log the plastic waste
+        document.getElementById('plastic-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const plasticType = document.getElementById('plastic-type').value;
+            const quantity = parseFloat(document.getElementById('quantity').value);
+
+            // Update total recycled and points
+            totalRecycled += quantity;
+            ecoPoints += quantity * 10; // 10 points for each kg of plastic recycled
+
+            // Update the display
+            document.getElementById('total-recycled').innerText = totalRecycled;
+            document.getElementById('eco-points').innerText = ecoPoints;
+
+            // Update leaderboard (this can be expanded to a real backend integration)
+            leaderboard.push({ name: "User", totalRecycled: totalRecycled });
+            updateLeaderboard();
+        });
+
+        // Initialize the leaderboard
+        updateLeaderboard();
+    </script>
+
+</body>
+</html>
